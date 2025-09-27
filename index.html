@@ -47,6 +47,7 @@
       left: 25%;
       top: 50%;
       transform: translate(-50%, -50%);
+      z-index: 2;
     }
 
     #noBtn {
@@ -54,6 +55,7 @@
       color: black;
       top: 50%;
       transform: translate(-50%, -50%);
+      z-index: 1;
     }
   </style>
 </head>
@@ -67,20 +69,25 @@
   </audio>
 
   <div class="buttons">
-    <button id="yesBtn" onclick="document.querySelector('audio').play(); alert('Tambem te amo 😍')">SIM</button>
+    <button id="yesBtn" onclick="document.querySelector('audio').play(); alert('Tambem Te Amo 😍')">SIM</button>
     <button id="noBtn">NÃO</button>
   </div>
 
   <script>
     const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
     let direction = 1;
-    let position = 150;
+    let position = 250;
 
     function animateNoButton() {
       const screenWidth = window.innerWidth;
-      const buttonWidth = noBtn.offsetWidth;
-      const maxPosition = screenWidth - buttonWidth - 20;
-      const minPosition = 20;
+      const noWidth = noBtn.offsetWidth;
+      const yesLeft = yesBtn.offsetLeft;
+      const yesWidth = yesBtn.offsetWidth;
+
+      // Define limites para evitar sobreposição com o botão SIM
+      const minPosition = yesLeft + yesWidth + 20;
+      const maxPosition = screenWidth - noWidth - 20;
 
       position += direction * 2;
 
@@ -96,4 +103,3 @@
   </script>
 </body>
 </html>
-
