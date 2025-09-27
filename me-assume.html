@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Me Assume?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #ff99cc, #ffe6f0);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #d6336c;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      position: relative;
+      margin-top: 30px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background-color: #ff4d88;
+      color: white;
+      left: 50%;
+      transform: translateX(-120%);
+    }
+
+    #noBtn {
+      background-color: #cccccc;
+      color: black;
+      left: 50%;
+      transform: translateX(20%);
+    }
+  </style>
+</head>
+<body>
+  <h1>Você vai me assumir ou vai continuar fugindo do amor?</h1>
+  <div class="buttons">
+    <button id="yesBtn" onclick="alert('Sabia que você me ama 😍')">SIM</button>
+    <button id="noBtn">NÃO</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('touchstart', moveButton);
+    noBtn.addEventListener('mouseover', moveButton);
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+  </script>
+</body>
