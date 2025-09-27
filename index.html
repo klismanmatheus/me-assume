@@ -69,24 +69,20 @@
   </audio>
 
   <div class="buttons">
-    <button id="yesBtn" onclick="document.querySelector('audio').play(); alert('Tambem Te Amo 😍')">SIM</button>
+    <button id="yesBtn" onclick="document.querySelector('audio').play(); alert('Tambem te amo 😍')">SIM</button>
     <button id="noBtn">NÃO</button>
   </div>
 
   <script>
     const noBtn = document.getElementById('noBtn');
-    const yesBtn = document.getElementById('yesBtn');
     let direction = 1;
-    let position = 250;
+    let position = window.innerWidth * 0.6; // começa na metade direita
 
     function animateNoButton() {
       const screenWidth = window.innerWidth;
       const noWidth = noBtn.offsetWidth;
-      const yesLeft = yesBtn.offsetLeft;
-      const yesWidth = yesBtn.offsetWidth;
 
-      // Define limites para evitar sobreposição com o botão SIM
-      const minPosition = yesLeft + yesWidth + 20;
+      const minPosition = screenWidth * 0.55; // metade direita
       const maxPosition = screenWidth - noWidth - 20;
 
       position += direction * 2;
