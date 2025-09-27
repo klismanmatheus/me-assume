@@ -59,21 +59,32 @@
 </head>
 <body>
   <h1>Você vai me assumir ou vai continuar fugindo do amor?</h1>
+
+  <!-- Música romântica -->
+  <audio autoplay loop>
+    <source src="perfect.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
   <div class="buttons">
-    <button id="yesBtn" onclick="alert('tambem te amo 😍.')">SIM</button>
+    <button id="yesBtn" onclick="document.querySelector('audio').play(); alert('Sabia que você me ama 😍')">SIM</button>
     <button id="noBtn">NÃO</button>
   </div>
 
   <script>
     const noBtn = document.getElementById('noBtn');
     let direction = 1;
-    let position = 75;
+    let position = 150;
 
     function animateNoButton() {
       const screenWidth = window.innerWidth;
+      const buttonWidth = noBtn.offsetWidth;
+      const maxPosition = screenWidth - buttonWidth - 20;
+      const minPosition = 20;
+
       position += direction * 2;
 
-      if (position > screenWidth - 50 || position < 50) {
+      if (position >= maxPosition || position <= minPosition) {
         direction *= -1;
       }
 
@@ -85,4 +96,3 @@
   </script>
 </body>
 </html>
-
